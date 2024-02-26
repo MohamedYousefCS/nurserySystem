@@ -27,7 +27,6 @@ module.exports.create = (req, res, next) => {
 
   const { name, supervisor } = req.body;
   const Super = teachers.findOne({ supervisor });
-  console.log(Super);
   if (!Super) {
     return res.status(404).json({
       message: "supervisor no found",

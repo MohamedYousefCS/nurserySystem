@@ -4,7 +4,7 @@ module.exports.login = async (req, res) => {
   //Find if user exist
   const { email, password } = req.body;
   const user = await Teacher.findOne({ email });
-  console.log(user);
+  // console.log(user);
   if (user && (await bcrypt.compare(password, user.password))) {
     const token = user.generateAuthToken();
     return res.status(200).json({
